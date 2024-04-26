@@ -1,0 +1,529 @@
+@charset "utf-8";
+img{
+  width: 100%;
+}
+#header {
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}
+.logo{
+  width: 200px;
+  padding-left: 80px;
+  padding-top: 83px;
+}
+.header_nav { 
+display: flex;
+justify-content: space-between;
+max-width: 100%;
+}
+.header_nav ul{
+  display: flex;
+  gap: 92px;
+  padding-top: 120px;
+}
+.pass1 {
+  width: 100%;
+}
+.pass2{
+  width: 100%;
+  padding-bottom: 95px;
+}
+.welcome{
+  width: 31.9%;
+}
+.ayaoomine{
+  width: 56.8%;
+  position: relative;
+  top: 60px;
+  left: 150px;
+}
+.AYAOOMINE__img{
+  position: relative;
+  height: 450px;
+}
+#about{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.about_inner{
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 60px;
+  padding-bottom: 265px;
+}
+.about_item{
+  display: flex;
+  width: 45.5%;
+}
+#AYAOOMINE{
+  position: relative;
+}
+.welcome{
+  position: absolute;
+  content: "";
+  top: -100px;
+  left: 60px;
+}
+.about_h2{
+  padding-bottom: 28px;
+  font-size: 65px;
+  position: relative;
+}
+.about_h2::before{
+  position: absolute;
+  content:"";
+  width: 160px;
+  height: 3px;
+  background-color: #252625;
+  border-radius: 5px;
+  top: -12px;
+}
+h2 span{
+  display: block;
+  font-size: 30px;
+  font-family:"游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+.profile_item p{
+  color: #252625;
+  font-family:"游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+}
+.profile{
+  width: 275px
+  
+}
+.name{
+  font-size: 48px;
+  padding-bottom: 63px;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+.from{
+  font-size: 18px;
+  padding-bottom: 33px;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+#works{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 325px;
+}
+#works li{
+  width: 30%;
+}
+#works ul{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 50px;
+  padding-top: 45px;
+  padding-bottom: 100px;
+  justify-content: space-between;
+}
+.works_text{
+  text-align: left;
+  padding: 10px;
+}
+.contact_inner{
+  background-color: #ff801e;
+  color: #ffff;
+  text-align: center;
+  max-width: 1055px;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 100px 0 147px 0;
+}
+#contact{
+  padding: 0 16px;
+}
+.contact_item{
+  text-align: center;
+}
+.contact_h2::before{
+  position: absolute;
+  content: "";
+  width: 160px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.contact_button{
+  display: block;
+  width: 215px;
+  margin-left: auto;
+}
+.contact{
+  font-size: 65px;
+}
+.contact_text{
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  padding-bottom: 72px;
+}
+.button{
+  border: #ffffff;
+}
+.button_text{
+  display: block;
+  width: 465px;
+  height: 105px;
+  border: 3px solid #ffffff;
+  border-radius: 105px;
+  color: #ffffff;
+  font-size: 41px;
+  text-align: center;
+  line-height: 105px;
+  margin: 0 auto;
+}
+#first_footer{
+  display: flex;
+  align-items: baseline;
+  max-width: 1100px;
+  margin: 235px auto;
+}
+.copyright{
+  text-align: left;
+  color: #252625;
+  font-size: 16px;
+}
+#footer.logo{
+  width: 112px;
+  padding: 0;
+}
+
+
+/* プロフィール */
+#profile img{
+  position: absolute;
+}
+#profile h1{
+  font-size: 48px;
+  padding-left: 15.5%;
+  letter-spacing: 0.3em;
+  line-height: 1.5;
+}
+.profile_name{
+  font-size: 20px;
+  padding-left: 15.5%;
+  padding-bottom: 125px;
+  letter-spacing: 0.6em;
+}
+.title{
+  font-size: 44px;
+  padding-left: 505px;
+  padding-bottom: 60px;
+  line-height: 2.2;
+  letter-spacing: 130;
+}
+.profile_text{
+  font-size: 18px;
+  padding-left: 505px;
+  padding-bottom: 100px;
+  line-height: 2;
+}
+#history{
+  padding: 86px;
+}
+.history{
+  width: 15%;
+}
+#history h3{
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+#history p{
+  font-size: 16px;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  line-height: 2em;
+}
+.history_item{
+  padding-top: 85px;
+  padding-bottom: 85px;
+  line-height: 1.5;
+}
+
+.history_second{
+  padding-bottom: 155px;
+  line-height: 1.5;
+}
+
+#profile_inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 100px;
+}
+#favorite{
+  position: relative;
+}
+.favorite_inner{
+  display: flex;
+  justify-content: end;
+  padding-bottom: 60px;
+}
+.favorite{
+  width: 260px;
+  position: absolute;
+  left: 0;
+  top: 46px;
+}
+.favorite h4{
+  padding: 20px 0;
+  text-align: center;
+}
+#favorite ul{
+  border: 3px solid #252625;
+  border-radius: 10px;
+  width: calc(100% - 221px);
+  padding: 43px 0 43px 52px;
+}
+
+h4{
+  border: solid;
+  background-color: #252625;
+  border: none;
+  border-radius: 8px;
+  padding: 20px 200px 20px 200px;
+  color: #bfc4bf;
+}
+.skill,.strengths{
+  width: 45%;
+}
+.skill_item li{
+  display: flex;
+  padding: 8px;
+}
+.strengths_item li{
+  display: flex;
+  padding: 16px;
+}
+.strengths_item li span{
+  padding-right: 16px;
+}
+.favorite span{
+  padding: 20px 80px;
+}
+.favorite_item{
+  border: solid;
+  border-color: #252625;
+  height: 7px;
+}
+#favorite{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.favorite_text{
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  line-height: 2;
+}
+.favorite_text_small{
+  font-size: 16px;
+}
+.footer_img{
+  position: absolute;
+}
+.profile_copy{
+  text-align: center;
+}
+
+
+
+/* ワークスページ */
+.works_page img{
+  padding-left: 10%;
+  width: 23%;
+}
+#header ul{
+  padding-right: 10%;
+}
+.works_img img{
+  width: 60%;
+  padding-left: 15%;
+  padding-top: 93px;
+}
+  #works_area h2{
+    padding-left: 12%;
+    padding-top: 300px;
+    padding-bottom: 95px;
+    font-size: 35px;
+  }
+  .pc_img img{
+    width: 65%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 90px;
+  }
+  .banner img{
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 90px;
+  }
+  .life_hair_design img{
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+  }
+  .design{
+    padding-bottom: 40px;
+    padding-left: 133px;
+  }
+  .item{
+    padding-bottom: 10px;
+  }
+  .works_inner_text{
+    max-width: 530px;
+    line-height: 1.7em;
+
+  }
+  .workstext_inner{
+    border-right: 1px #252625 solid;
+    padding-right: 5%;
+  }
+  .workstext_inner h3{
+    padding-bottom: 20px;
+  }
+  .workstext_list{
+    padding-left: 5%;
+  }
+  .text_list{
+    padding-left: 3%;
+    padding-bottom: 30px;
+  }
+  #works_area p{
+    padding-bottom: 120px;
+    line-height: 2;
+  }
+  .works_pic{
+    width: 90%;
+    padding-left: 150px;
+    padding-top: 105px;
+  }
+  .backtoindex_botton{
+    display: block;
+    width: 215px;
+    margin-right: auto;
+    padding-left: 50px;
+  }
+#works_text{
+  display: flex;
+  /* gap: 50px; */
+  padding-left: 12%;
+  padding-bottom: 100px;
+}
+.workstext_list{
+  width: 35%;
+}
+footer ul{
+  display: flex;
+  justify-content: center;
+  gap: 98px;
+  padding-bottom: 10%;
+  padding-top: 10%;
+  font-size: 20px;
+
+}
+.copy{
+  text-align: center;
+  padding-bottom: 10%;
+  font-size: 16px;
+}
+  /* コンタクト */
+.contact_area{
+  width: 33%;
+  padding-top: 180px;
+  margin: 0 auto;
+}
+.line{
+  height: 18px;
+  width: 474px;
+  background-color: #ff801e;
+  margin: 0 auto;
+}
+#contact_page h1{
+  font-size: 36px;
+  padding-top: 6%;
+  padding-bottom: 6%;
+  text-align: center;
+  color: #252625;
+}
+#contact_page p{
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 7%;
+  line-height: 1.7;
+  color: #252625;
+}
+#inquiry{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 175px;
+  gap: 3%;
+}
+
+.inquiry_item{
+padding-bottom: 6%;
+padding-left: 15%;
+color: #252625;
+}
+.inquiry_area{
+  padding-bottom: 6%;
+  max-width: 600px;
+  border-radius: 10px;
+  color: #bcc1bc;
+  border: solid #bcc1bc;
+  background-color: #ffffff;
+}
+.send{
+  color: #bcc1bc;
+  font-size: 25px;
+  text-align: center;
+}
+.send_button{
+  text-align: center;
+  border: none;
+  background-color: #252625;
+  border-radius: 100px;
+  width: 439px;
+  height: 130px;
+  line-height: 130px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+footer ul{
+  display: flex;
+  justify-content: center;
+  gap: 98px;
+  padding-bottom: 10%;
+  font-size: 20px;
+}
+.copy{
+  text-align: center;
+  padding-bottom: 10%;
+  font-size: 16px;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 767px){
+  .about_inner{
+    display: none;
+  }
+.about_inner_sp{
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+}
