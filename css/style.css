@@ -6,6 +6,7 @@ img{
   position: absolute;
   width: 100%;
   z-index: 9999;
+  top: 0;
 }
 .logo{
   width: 200px;
@@ -142,6 +143,9 @@ h2 span{
 .contact_item{
   text-align: center;
 }
+#contact h2{
+  font-size: 50px;
+}
 .contact_h2::before{
   position: absolute;
   content: "";
@@ -200,39 +204,77 @@ h2 span{
 
 
 /* プロフィール */
+#profile{
+  margin-top: -30%;
+  max-width: 1060px;
+  margin: -30% auto 0;
+  display: flex;
+  gap: 7%;
+}
 #profile img{
   position: absolute;
 }
 #profile h1{
   font-size: 48px;
-  padding-left: 15.5%;
   letter-spacing: 0.3em;
   line-height: 1.5;
+  white-space: nowrap;
+}
+.name_title{
+  width: 250px;
 }
 .profile_name{
   font-size: 20px;
-  padding-left: 15.5%;
   padding-bottom: 125px;
   letter-spacing: 0.6em;
+  white-space: nowrap;
+}
+.profile__sub{
+  margin-top: 200px;
+  width: calc(100% - 250px);
 }
 .title{
   font-size: 44px;
-  padding-left: 505px;
   padding-bottom: 60px;
   line-height: 2.2;
   letter-spacing: 130;
 }
 .profile_text{
   font-size: 18px;
-  padding-left: 505px;
   padding-bottom: 100px;
   line-height: 2;
 }
 #history{
   padding: 86px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+#history ol{
+  margin-top: -12px;
 }
 .history{
-  width: 15%;
+  width: 215px;
+}
+.history_item{
+  padding-top: 85px;
+  padding-bottom: 85px;
+  line-height: 1.5;
+  padding-left: 42px;
+  border-left: 2px solid #252625;
+}
+.history_item .heading__h3{
+  position: relative;
+}
+.history_item .heading__h3::before{
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: #252625;
+  border-radius: 50%;
+  left: -51px;
+  top: 13px;
+  transform: translateY(-50%);
 }
 #history h3{
   font-size: 16px;
@@ -333,8 +375,13 @@ h4{
 .footer_img{
   position: absolute;
 }
+.profile_footer{
+  margin-top: 10%;
+}
 .profile_copy{
+  position: relative;
   text-align: center;
+  top: 20%;
 }
 
 
@@ -440,6 +487,9 @@ footer ul{
   font-size: 16px;
 }
   /* コンタクト */
+#contact_page{
+  margin-top: 200px;
+}
 .contact_area{
   width: 33%;
   padding-top: 180px;
@@ -449,7 +499,8 @@ footer ul{
   height: 18px;
   width: 474px;
   background-color: #ff801e;
-  margin: 0 auto;
+  margin: -60px auto 0;
+  margin-top: -60px;
 }
 #contact_page h1{
   font-size: 36px;
@@ -517,13 +568,39 @@ footer ul{
 
 /* レスポンシブ */
 @media screen and (max-width: 767px){
-  .about_inner{
-    display: none;
-  }
-.about_inner_sp{
+
+.about_inner{
   flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
+}
+.about_item{
   width: 100%;
 }
+.about_h2{
+  text-align: center;
 }
+.about_img{
+  text-align: center;
+}
+.about_item{
+  text-align: center;
+}
+#profile{
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20%;
+}
+.profile__sub {
+  margin-top: 20px;
+  max-width: 460px;
+}
+#profile_inner{
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1%;
+}
+.skill{
+  padding-bottom: 14%;
+}
+}
+
+
