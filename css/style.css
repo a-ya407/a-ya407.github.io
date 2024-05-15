@@ -1,63 +1,219 @@
 @charset "utf-8";
+/* loading */
+.loading {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+}
+.loading-bg {
+  height: 100%;
+  width: 100%;
+  background-color: #ff801e;
+  transform: translateY(0);
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 3s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.slideAnimeLeftRight {
+  animation-name: slideTextX100;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.slide-in {
+  overflow: hidden;
+  display: inline-block;
+}
+.leftAnime {
+  opacity: 0;
+}
+@keyframes slideTextX100 {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slideAnimeRightLeft {
+  animation-name: slideTextX-100;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes slideTextX-100 {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.slide-in_inner {
+  font-size: 10vw;
+  display: inline-block;
+  color: #ffffff;
+  font-family: circe, sans-serif;
+  font-weight: bold;
+}
+
 /* =============== 
 共通スタイル
 =============== */
 body {
-  background-image: url(../img/first/background.png);
+  background-image: url(../img/first/background@3x.png);
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: circe, sans-serif;
 }
 img {
   width: 100%;
 }
-a{
-  transition: .3s;
+a {
+  transition: 0.3s;
+  color: #252625;
 }
-a:hover{
-  opacity: .7;
+a:hover {
+  opacity: 0.7;
 }
 .sp-br {
   display: none;
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .sp-br {
     display: block;
   }
 }
 
-/* ===============トップページ=================== */
+.scrolldown {
+  position: fixed;
+  bottom: 270px;
+  right: 30px;
+}
 
-/* ==========header========== */
+/*Scrollテキストの描写*/
+.scrolldown span {
+  /*描画位置*/
+  position: absolute;
+  left: -11px;
+  bottom: -75px;
+  /*テキストの形状*/
+  color: #252625;
+  font-size: 18px;
+  white-space: nowrap;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
 
+/* 丸の描写 */
+.scrolldown::before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 60px;
+  left: -4px;
+  /*丸の形状*/
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #252625;
+  /* 丸の動き1.6秒かけて透過し、永遠にループ
+  animation: circlemove 1.6s ease-in-out infinite,
+    cirlemovehide 1.6s ease-out infinite; */
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove {
+  0% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: -5px;
+  }
+}
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 線の描写 */
+.scrolldown::after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /*線の形状*/
+  width: 2px;
+  height: 60px;
+  background: #252625;
+}
+
+/* =============== トップページ =============== */
+
+/* =============== 
+header
+=============== */
 #header {
   position: absolute;
   width: 100%;
-  z-index: 9999;
+  z-index: 9998;
   top: 0;
 }
-.logo{
+.logo {
   width: 165px;
   padding-top: 83px;
 }
-.header_nav { 
+.header_nav {
   max-width: 1000px;
-  margin: 0 auto;
   padding: 0 20px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  font-size: 18px;
 }
-.header_nav_pc{
+.header__nav-pc {
   display: flex;
   gap: 92px;
   padding-top: 120px;
 }
 
-/* ==========hamburgerメニュー========== */
+/* hamメニュー */
 .hamburger,
 .header__nav-sp {
   display: none;
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .header__nav-pc {
     display: none;
   }
@@ -117,21 +273,26 @@ a:hover{
   .open.header__nav-sp ul {
     height: 100%;
     display: flex;
-    row-gap: 20px;
+    row-gap: 30px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 30px;
   }
 }
 
-/* ==========mainビジュアル========== */
-.pass1,.pass2 {
+/* =============== 
+main-visual
+=============== */
+.pass1,
+.pass2 {
   width: 100%;
+  color: #252625;
 }
-.pass2{
+.pass2 {
   padding-bottom: 95px;
 }
-.welcome{
+.welcome {
   width: 31.9%;
   max-width: 430px;
   position: absolute;
@@ -139,86 +300,89 @@ a:hover{
   top: -100px;
   left: 60px;
 }
-.ayaoomine__image-area{
+.AYAOOMINE__img {
+  position: relative;
+  height: 450px;
+}
+.ayaoomine__image-area {
   width: 56.8%;
   max-width: 780px;
   position: absolute;
   top: 110px;
   left: 200px;
 }
-.AYAOOMINE__img{
-  position: relative;
-  height: 450px;
-}
 
-/* ==========About========== */
+/* =============== 
+About
+=============== */
 #about {
-  padding: 0 20px;
+  padding: 0 60px;
   max-width: 1100px;
   margin: 0 auto 100px;
 }
-.about_inner{
+.about_inner {
   display: flex;
   max-width: 1100px;
-  margin: 0 auto;
   gap: 60px;
   padding-bottom: 100px;
+  margin: 0 auto;
 }
-.about_item{
+.about_item {
   display: flex;
   width: calc(100% - 580px);
 }
-#AYAOOMINE{
+#AYAOOMINE {
   position: relative;
 }
-.about_h2{
+.about_h2 {
   padding-bottom: 28px;
   font-size: 65px;
+  font-weight: bold;
   position: relative;
 }
-.about_h2::before{
+.about_h2::before {
   position: absolute;
   content: "";
-  width: 160px;
-  height: 3px;
   background-color: #252625;
   border-radius: 5px;
   top: -12px;
+  width: 160px;
+  height: 3px;
 }
-h2 span{
+h2 span {
   display: block;
   font-size: 30px;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  padding-bottom: 20px;
 }
-.profile_item p{
+.profile_item p {
   color: #252625;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
   line-height: 1.5em;
   letter-spacing: 0.1em;
 }
-.profile{
+.profile {
   width: 275px;
-  
 }
-.name{
+.name {
   font-size: 48px;
   padding-bottom: 63px;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
 }
-.from{
+.from {
   font-size: 18px;
   padding-bottom: 33px;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
 }
 
-/* ==========サークルボタン共通設定========== */
+/*==サークルボタン共通設定==*/
 .circle {
   position: absolute;
-  width: 470px;
-  top: -98px;
-  left: -100px;
+  width: 360px;
+  top: -38px;
+  left: -42px;
   transform-origin: center;
-  animation: 5s linear infinite rotation1;
+  animation: 7s linear infinite rotation1;
 }
 @keyframes rotation1 {
   0% {
@@ -232,16 +396,19 @@ h2 span{
   height: 100%;
   position: relative;
 }
-/* ===========Works========== */
-#works{
+
+/* =============== 
+Works
+=============== */
+#works {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px 325px;
+  padding: 0 50px 325px;
 }
-#works li{
+#works li {
   width: 30%;
 }
-#works ul{
+#works ul {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -250,33 +417,36 @@ h2 span{
   padding-bottom: 100px;
   justify-content: space-between;
 }
-.works_text{
+.works_text {
   text-align: left;
   padding: 10px;
 }
 
-/* ==========Contact========== */
-.contact_inner{
+/* =============== 
+Contact
+=============== */
+.contact_inner {
   background-color: #ff801e;
   color: #ffff;
   text-align: center;
-  max-width: 1055px;
+  max-width: 1030px;
   border-radius: 10px;
   margin: 0 auto;
-  padding: 100px 0 147px 0;
+  padding: 100px 100px ;
 }
-#contact{
-  padding: 0 16px;
+#contact {
+  padding: 0 60px;
 }
-.contact_item{
+.contact_item {
   padding: 0 20px;
   text-align: center;
 }
-#contact h2{
+#contact h2 {
   font-size: 50px;
   position: relative;
+  font-weight: bold;
 }
-.contact_h2::before{
+.contact_h2::before {
   position: absolute;
   content: "";
   width: 160px;
@@ -287,24 +457,25 @@ h2 span{
   left: 50%;
   transform: translateX(-50%);
 }
-.contact_button{
+.contact_button {
   display: block;
   width: 215px;
   margin-left: auto;
 }
-.contact{
+.contact {
   font-size: 65px;
 }
-.contact_text{
+.contact_text {
   color: #ffffff;
   font-size: 16px;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  line-height: normal;
   padding-bottom: 72px;
 }
-.button{
+.button {
   border: #ffffff;
 }
-.button_text{
+.button_text {
   display: block;
   width: 100%;
   max-width: 465px;
@@ -317,34 +488,43 @@ h2 span{
   line-height: 105px;
   margin: 0 auto;
 }
+.button_text:hover{
+  color: #ff801e;
+  background: #ffffff;
+  opacity: 1;
+  transition: .4s;
+}
 
-/* ==========footer========== */
-#first_footer{
+/* =============== 
+footer
+=============== */
+#first_footer {
   display: flex;
   align-items: baseline;
   max-width: 1100px;
-  margin: 235px auto 20px;
+  margin: 180px auto 20px;
 }
-#footer.logo{
+#footer.logo {
   width: 112px;
   padding: 0;
 }
-#first_footer .copy{
+#first_footer .copy {
   padding-bottom: 0;
 }
-.copyright{
+.copyright {
   text-align: left;
   color: #252625;
   font-size: 16px;
 }
 
-
-
-/* ==========プロフィールページ========== */
-#profile{
-  margin-top: -30%;
+/* =============== プロフィールページ =============== */
+/* =============== 
+profile 
+=============== */
+#profile {
   max-width: 1060px;
-  margin: -30% auto 0;
+  margin: -23% auto 0;
+  padding: 0 20px;
   display: flex;
   gap: 7%;
 }
@@ -355,180 +535,207 @@ h2 span{
   gap: 10%;
   justify-content: space-between;
   margin-bottom: 100px;
-  padding: 0 20px;
+  padding: 0 55px;
 }
-#profile img{
+#profile img {
   position: absolute;
 }
-#profile h1{
+#profile h1 {
   font-size: 48px;
   letter-spacing: 0.3em;
   line-height: 1.5;
   white-space: nowrap;
 }
-.name_title{
+.name_title {
   width: 250px;
 }
-.profile_name{
+.profile_name {
   font-size: 20px;
   padding-bottom: 125px;
   letter-spacing: 0.6em;
   white-space: nowrap;
 }
-.profile__sub{
+.profile__sub {
   margin-top: 200px;
   width: calc(100% - 250px);
 }
-.title{
+.title {
   font-size: 44px;
   padding-bottom: 60px;
   line-height: 2.2;
   letter-spacing: 130;
 }
-.profile_text{
+.profile_text {
   font-size: 18px;
   padding-bottom: 100px;
   line-height: 2;
 }
+.profile_copy p {
+  padding-bottom: 70px;
+}
 
-=========history==========
-#history{
+/* =============== 
+history
+=============== */
+/*タイムライン全体の設定*/
+.timeline {
+  width: 100%;
+  margin: 50px auto;
+  padding: 0 30px 0 0;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+.timeline li {
+  /*線の起点とするためrelativeを設定*/
+  position: relative;
+  list-style: none;
+  padding: 0 0 30px 0;
+}
+
+.timeline dl {
+  margin: 0 0 20px 3em;
+}
+
+.timeline dd strong {
+  display: block;
+  padding: 10px 0;
+}
+
+/*絶対配置で線を設定*/
+.border-line {
+  /*線の位置*/
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 2px; /*線の太さ*/
+  height: 0; /*はじめは高さを0に*/
+  background: #252625;
+}
+
+/*タイムラインの見出し横の丸の位置と形状*/
+.timeline li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #252625;
+  border-radius: 50%;
+}
+#history {
   padding: 86px;
   max-width: 950px;
   margin: 0 auto;
-}
-#history ol{
-  margin-top: -12px;
-}
-.history{
-  width: 215px;
-}
-.history_item{
-  padding-top: 85px;
-  padding-bottom: 85px;
-  line-height: 1.5;
-  padding-left: 42px;
-  border-left: 2px solid #252625;
-}
-.history_item .heading__h3{
   position: relative;
 }
-.history_item .heading__h3::before{
+#history::after {
   position: absolute;
   content: "";
-  width: 16px;
-  height: 16px;
+  height: 70px;
+  width: 2px;
   background-color: #252625;
-  border-radius: 50%;
-  left: -51px;
-  top: 13px;
-  transform: translateY(-50%);
+  top: 190px;
+  left: 90px;
 }
-#history h3{
-  font-size: 16px;
-  font-weight: bold;
-  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
-}
-#history p{
-  font-size: 16px;
-  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
-  line-height: 2em;
-}
-.history_item{
-  padding-top: 85px;
-  padding-bottom: 85px;
-  line-height: 1.5;
-}
-.history_second{
-  padding-bottom: 155px;
-  line-height: 1.5;
+.history {
+  display: block;
+  width: 215px;
 }
 
-/* ==========favorite========== */
-#favorite{
+/* =============== 
+favorite
+=============== */
+#favorite {
   padding: 0 20px;
   position: relative;
 }
-.favorite_inner{
+.favorite_inner {
   display: flex;
   justify-content: end;
   padding-bottom: 60px;
 }
-.favorite{
+.favorite {
   width: 260px;
   position: absolute;
   left: 20px;
   top: 46px;
 }
-.favorite h4{
+.favorite h4 {
   text-align: center;
 }
-#favorite ul{
+#favorite ul {
   border: 3px solid #252625;
   border-radius: 10px;
   width: calc(100% - 221px);
   padding: 43px 0 43px 52px;
 }
 
-/* ==========Skill========== */
-h4{
+/* =============== 
+skill
+=============== */
+h4 {
   border: solid;
   background-color: #252625;
   border: none;
   border-radius: 8px;
+  font-size: 22px;
   width: 100%;
   max-width: 460px;
   height: 75px;
   text-align: center;
   line-height: 75px;
-  margin-bottom: 40px;
   color: #bfc4bf;
+  margin-bottom: 40px;
 }
-.skill,.strengths{
+.skill,
+.strengths {
   width: 45%;
 }
-.skill_item li{
+.skill_item li {
   display: flex;
   padding: 8px;
 }
-.strengths_item li{
+.strengths_item li {
   display: flex;
   padding: 16px;
 }
-.strengths_item li span{
+.strengths_item li span {
   padding-right: 16px;
 }
-.favorite span{
+.favorite span {
   padding: 20px 80px;
 }
-.favorite_item{
+.favorite_item {
   border: solid;
   border-color: #252625;
   height: 7px;
 }
-#favorite{
+#favorite {
   max-width: 1100px;
   margin: 0 auto;
 }
-.favorite_text{
+.favorite_text {
   font-size: 22px;
   display: flex;
   align-items: center;
   line-height: 2;
 }
-.favorite_text_small{
+.favorite_text_small {
   font-size: 16px;
 }
 
-/* ==========footer========== */
-#profile_footer{
+/* =============== 
+footer
+=============== */
+#profile_footer {
   position: relative;
   width: 100%;
 }
-.profile_footer{
+.profile_footer {
   margin-top: 10%;
 }
-.profile_copy{
+.profile_copy {
   display: block;
   width: 100%;
   position: absolute;
@@ -536,106 +743,107 @@ h4{
   bottom: 0;
 }
 
-
-/*========== ワークスページ========== */
-.works_page img{
+/* =============== ワークスページ =============== */
+.works_page img {
   padding-left: 10%;
   width: 23%;
 }
-.works_img img{
+.works_img img {
   width: 60%;
   padding-left: 15%;
   padding-top: 93px;
 }
-  #works_area h2{
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 300px 20px 95px;
-    font-size: 35px;
-  }
-  .pc_img img{
-    width: 65%;
-    display: block;
-    margin: 0 auto;
-    padding-bottom: 90px;
-  }
-  .banner img{
-    width: 40%;
-    display: block;
-    margin: 0 auto;
-    padding-bottom: 90px;
-  }
-  .life_hair_design img{
-    display: block;
-    margin: 0 auto;
-    width: 60%;
-  }
-  .design{
-    padding-bottom: 40px;
-    padding-left: 133px;
-  }
-  .item{
-    padding-bottom: 10px;
-  }
-  .works_inner_text{
-    max-width: 530px;
-    line-height: 1.7em;
-  }
-  .workstext_inner{
-    border-right: 1px #252625 solid;
-    padding-right: 5%;
-    width: 65%;
-  }
-  .workstext_inner h3{
-    padding-bottom: 20px;
-    font-weight: bold;
-  }
-  .workstext_list{
-    padding-left: 5%;
-  }
-  .workstext_list h3{
-    font-weight: bold;
-  }
-  .text_list{
-    padding-left: 3%;
-    padding-bottom: 30px;
-  }
-  #works_area p{
-    padding-bottom: 120px;
-    line-height: 2;
-  }
-  .works_pic{
-    max-width: 1000px;
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 105px;
-  }
-  .page__btn-area{
-    max-width: 1000px;
-    margin: 50px auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  .backtoindex_botton,
-  .nexttoindex_botton {
-    display: block;
-    width: 100px;
-    margin-right: auto;
-  }
-  .page__btn-area .backToTop img{
-    width: 180px;
-  }
-  #works_text{
+#works_area h2 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 280px 20px 95px;
+  font-size: 35px;
+}
+.pc_img img {
+  width: 65%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 90px;
+}
+.banner img {
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 90px;
+}
+.life_hair_design img {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+.design {
+  padding-bottom: 40px;
+  padding-left: 133px;
+}
+.item {
+  padding-bottom: 10px;
+}
+.works_inner_text {
+  max-width: 530px;
+  line-height: 1.7em;
+  letter-spacing: 0.1em;
+}
+.workstext_inner {
+  border-right: 1px #252625 solid;
+  padding-right: 5%;
+  width: 65%;
+}
+.workstext_inner h3 {
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+.workstext_list {
+  padding-left: 5%;
+}
+.workstext_list h3 {
+  font-weight: bold;
+}
+.text_list {
+  padding-left: 3%;
+  padding-bottom: 30px;
+}
+#works_area p {
+  padding-bottom: 120px;
+  line-height: 2;
+}
+.works_pic {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 105px;
+}
+.page__btn-area {
+  max-width: 1000px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.backtoindex_botton,
+.nexttoindex_botton {
+  display: block;
+  width: 100px;
+  margin-right: auto;
+}
+.page__btn-area .backToTop img {
+  width: 180px;
+}
+#works_text {
   max-width: 1000px;
   display: flex;
-  margin: o auto;
-  padding: 0 20px 100px;
-  }
-.workstext_list{
+  /* gap: 50px; */
+  margin: 0 auto;
+  padding: 0 50px 60px;
+}
+.workstext_list {
   width: 35%;
 }
-.back-btn{
+.back-btn {
   max-width: 1000px;
   margin: 0 auto 200px;
   display: block;
@@ -648,55 +856,64 @@ footer ul {
   padding-top: 10%;
   font-size: 20px;
 }
-.copy{
+.copy {
   text-align: center;
-  padding-bottom: 10%;
+  padding: 40px;
   font-size: 16px;
 }
 
-  /* ==========コンタクトページ========== */
-#contact_page{
+/* =============== コンタクトページ =============== */
+#contact_page {
   margin-top: 200px;
 }
-.contact_area{
-  width: 33%;
+.contact_area {
+  text-align: center;
   padding-top: 180px;
   margin: 0 auto;
+  position: relative;
 }
-.line{
+.contact_area img{
+  width: 490px;
+  padding: 180px 40px 0;
+}
+.line {
+  position: absolute;
   height: 18px;
-  width: 474px;
+  max-width: 474px;
+  width: 100%;
   background-color: #ff801e;
-  margin: -60px auto 0;
-  margin-top: -60px;
+  z-index: -1;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
 }
-#contact_page h1{
+#contact_page h1 {
   font-size: 36px;
   padding-top: 6%;
   padding-bottom: 6%;
   text-align: center;
   color: #252625;
 }
-#contact_page p{
+#contact_page p {
   font-size: 16px;
   text-align: center;
   padding-bottom: 7%;
   line-height: 1.7;
   color: #252625;
 }
-#inquiry{
+#inquiry {
   display: flex;
   justify-content: center;
   padding-bottom: 175px;
   gap: 3%;
 }
 
-.inquiry_item{
-padding-bottom: 6%;
-padding-left: 15%;
-color: #252625;
+.inquiry_item {
+  padding-bottom: 6%;
+  padding-left: 15%;
+  color: #252625;
 }
-.inquiry_area{
+.inquiry_area {
   padding-bottom: 6%;
   max-width: 600px;
   border-radius: 10px;
@@ -704,12 +921,12 @@ color: #252625;
   border: solid #bcc1bc;
   background-color: #ffffff;
 }
-.send{
+.send {
   color: #bcc1bc;
   font-size: 25px;
   text-align: center;
 }
-.send_button{
+.send_button {
   text-align: center;
   border: none;
   background-color: #252625;
@@ -720,8 +937,54 @@ color: #252625;
   text-align: center;
   margin: 0 auto;
 }
+.c-form{
+  max-width: 840px;
+  margin: 0 auto;
+  font-family: circe, sans-serif;
+  letter-spacing: 0.2em;
+  line-height: 2;
+  padding: 5%;
+}
+.c-form__item{
+  display: flex;
+  padding-bottom: 30px;
+}
+.c-form__label{
+  display: block;
+  width: 240px;
+}
+.c-form__input{
+  display: block;
+  width: calc(100% - 240px);
+  background-color: #ffffff;
+  border: 1px solid #252625;
+  border-radius: 7px;
+  padding-left: 10px;
+}
+.c-form__message{
+  height: 200px;
+}
+.c-form__submit button{
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  height: 80px;
+  margin: 00px auto 0;
+  text-align: center;
+  line-height: 80px;
+  border: 1px solid #252625;
+  background-color: #252625;
+  color: #ffffff;
+  border-radius: 80px;
+  cursor: pointer;
+  transition: .3s;
+}
+.c-form__submit button:hover{
+  background-color: #ffffff;
+  color: #252625;
+}
 
-footer ul{
+footer ul {
   display: flex;
   justify-content: center;
   gap: 98px;
@@ -729,16 +992,47 @@ footer ul{
   font-size: 20px;
 }
 
-/* ==========レスポンシブ========== */
-/* ▼1000px以下 */
+/* =============== サンクスページ =============== */
+.thanks img {
+  width: 50%;
+}
+#thanks {
+  max-width: 1000px;
+  margin: 200px auto 0;
+  padding: 60px;
+}
+#thanks p {
+  font-size: 22px;
+  line-height: 1.5;
+  padding-top: 120px;
+  margin: 0 auto;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+#thanks .thanks_page{
+  text-align: center;
+}
+#thanks .thanks-message {
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 80px;
+  font-weight: bold;
+  color: #252625;
+  border-bottom: #ff801e solid 18px;
+  text-align: center;
+  font-family: circe, sans-serif;
+}
+
+/* =============== レスポンシブ =============== */
+
+/* ▼ 1000px以下 */
 @media screen and (max-width: 1000px) {
   .favorite_text {
     display: block;
   }
-  .welcome{
+  .welcome {
     display: none;
   }
-  .ayaoomine__image-area{
+  .ayaoomine__image-area {
     position: absolute;
     width: 80%;
     left: 20px;
@@ -753,48 +1047,51 @@ footer ul{
     width: 200px;
   }
   .circle {
-    width: 390px;
+    width: 270px;
     display: block;
-    left: 50%;
-    top: -94px;
+    left: 81%;
+    top: -31px;
     margin-left: -195px;
   }
 }
 /* ▼ 800px以下 */
-@media screen and (max-width: 800px){
-  #works_text{
+@media screen and (max-width: 800px) {
+  #works_text {
     display: block;
   }
-  #works_area h2{
-    font-size: 20px;
+  #works_area h2 {
+    font-size: 28px;
     text-align: center;
     padding-left: 0;
   }
-  .works_inner_text{
+  .works_inner_text {
     max-width: 100%;
   }
-  .workstext_inner{
+  .workstext_inner {
     border-right: none;
     border-bottom: 1px #252625 solid;
     width: 100%;
     padding: 0 0 40px 0;
     margin-bottom: 40px;
   }
-  .workstext_list{
+  .workstext_list {
     width: 100%;
     padding: 0;
   }
-  .text_list{
+  .text_list {
     padding-left: 0;
   }
-  .works_pic{
-    padding: 105px 0 0 0;
+  .works_pic {
+    padding: 105px 20px 0;
     margin: 0 auto;
   }
 }
 
-/* ▼767px以下 */
+/* ▼ 767px以下 */
 @media screen and (max-width: 767px) {
+  .scrolldown{
+    right: 12px;
+  }
   footer ul {
     display: none;
   }
@@ -807,8 +1104,9 @@ footer ul{
   .about_h2 {
     font-size: 33px;
     text-align: center;
+    color: #252625;
   }
-  .about_h2::before{
+  .about_h2::before {
     width: 80px;
     left: 50%;
     transform: translateX(-50%);
@@ -819,63 +1117,67 @@ footer ul{
   .about_item {
     text-align: center;
   }
+  .contact_button{
+    margin: 0 auto;
+  }
   .logo {
     padding: 10px 0 0 10px;
     width: 116px;
   }
   #profile h1 {
-    font-size: 18px;
+    font-size: 30px;
   }
   .profile_name {
-    font-size: 7px;
+    font-size: 13px;
     padding-bottom: 20px;
   }
 
   #history {
     padding: 60px 20px;
   }
-  .history_item {
-    padding: 30px 0 30px 42px;
+  #history::after {
+    top: 160px;
+    left: 24px;
   }
   h4 {
     max-width: 100%;
     width: 100%;
     height: 47px;
     line-height: 47px;
-    font-size: 12px;
+    font-size: 20px;
   }
   .favorite {
-    width: 80px;
+    width: 105px;
     top: -14px;
     left: 10px;
     font-size: 12px;
   }
   .favorite h4 {
-    height: 26px;
-    line-height: 26px;
+    height: 33px;
+    line-height: 33px;
   }
   .skill,
   .strengths {
     width: 100%;
   }
 
-  .favorite_text{
-    font-size: 15px;  
+  .favorite_text {
+    font-size: 15px;
   }
-  .favorite_text_small{
+  .favorite_text_small {
     font-size: 12px;
   }
   .favorite_inner {
     display: block;
   }
   #favorite ul {
-    width: 100%;
+    width: 94%;
     padding: 20px;
   }
   #profile {
     display: block;
-    padding: 0 20px;
-    padding-top: 20%;
+    padding: 0 58px;
+    padding-top: 15%;
   }
   .profile__sub {
     margin-top: 20px;
@@ -890,12 +1192,15 @@ footer ul{
     padding-bottom: 14%;
   }
   .title {
-    font-size: 25px;
+    font-size: 27px;
+  }
+  .profile_text{
+    font-size: 14px;
   }
 
   #about {
-    padding: 0 20px;
-    margin-bottom: 100px;
+    padding: 0 7%;
+    margin-bottom: 200px;
   }
   .profile_item p {
     text-align: left;
@@ -939,10 +1244,10 @@ footer ul{
     background-size: 100%;
   }
   .button_text {
-    font-size: 15px;
+    font-size: 22px;
     max-width: 200px;
-    height: 45px;
-    line-height: 45px;
+    height: 50px;
+    line-height: 50px;
   }
   .about_inner {
     padding-bottom: 55px;
@@ -956,17 +1261,78 @@ footer ul{
     width: 200px;
   }
   .circle {
-    width: 390px;
+    width: 270px;
     display: block;
-    left: 50%;
-    top: -44px;
+    left: 60%;
+    top: 16px;
     margin-left: -195px;
   }
   .backtoindex_botton,
-  .nexttoindex_botton{
+  .nexttoindex_botton {
     width: 70px;
   }
-  .page__btn-area .backToTop img{
+  .page__btn-area .backToTop img {
     width: 122px;
+  }
+  #contact{
+    padding: 0 45px;
+  }
+  #contact h2{
+    font-size: 33px;
+  }
+  h2 span{
+    font-size: 18px;
+  }
+  .contact_inner{
+    padding: 100px 20px;
+  }
+
+  /* =============== コンタクトページ =============== */
+  .c-form__item{
+    display: block;
+  }
+  .c-form__input{
+    width: 100%;
+  }
+  #contact_page{
+    margin-top: 150px;
+  }
+  #contact_page h1{
+    padding-top: 0;
+    font-size: 24px;
+  }
+  #contact_page p{
+    font-size: 14px;
+    text-align: left;
+    padding: 0 5%;
+    text-align: center;
+  }
+  .contact_area{
+    padding-top: 30px;
+  }
+  .contact_area img{
+    width: 300px;
+    padding-top: 0;
+  }
+  .line{
+    max-width: 280px;
+    bottom: 17px;
+  }
+  .c-form__submit button{
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .circle {
+    left: 63%;
+    top: 12px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .circle {
+    left: 69%;
+    top: 15px;
   }
 }

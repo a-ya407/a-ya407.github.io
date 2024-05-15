@@ -1,112 +1,152 @@
+
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AYA OOMINE</title>
-  <link rel="stylesheet" href="./CSS/reset.css">
-  <link rel="stylesheet" href="./CSS/style.css">
-  <link rel="stylesheet" href="https://use.typekit.net/sbs5xto.css">
-</head>
-<body>
-  <header id="header" class="wrapper">
-    <nav class="header_nav">
-    <h1 class="logo">
-      <img src="./img/first/logo@2x.png" alt="ヘッダーロゴ">
-    </h1>
-    <ul>
-      <li><a href="./profile.html">About</a></li>
-      <li><a href="./works1.html">Works</a></li>
-      <li><a href="./contact.html">Contact</a></li>
-    </ul>
-  </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
 
-<section id="contact_page">
-  <div class="contact_area">
-    <img src="./img/first/contact@2x.png" alt="contact">
-  </div>
-  <div class="line"></div>
-  <h1>お問い合わせ</h1>
-  <p>この度はお問い合わせフォームまでお越しいただき、ありがとうございます。<br>
-    サービスに関するご質問、ご希望などお気軽にご相談ください。<br>
-    内容確認後、営業日でご連絡いたします。<br>
-    横浜市を拠点としておりますが、お打ち合わせはオンラインでも承ります。
-    </p>
-</section>
+    <!-- slickのCSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+    <!-- AOS.jsのCSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-<section id="inquiry">
-<div class="inquiry">
-  <ul>
-    <li>
-      <span>
-        <p class="inquiry_item">Name[氏名]</p>
-      </span>
-    </li>
-    <li>
-      <span>
-      <p class="inquiry_item">Email[メール]</p>
-      </span>
-    </li>
-    <li>
-      <span>
-        <p class="inquiry_item">Tel[電話]</p>
-      </span>
-    </li>
-    <li>
-      <span>
-        <p class="inquiry_item">Message[メッセージ]</p>
-      </span>
-    </li>
-  </ul>
-  </div>
-<div class="inquiry_inner">
-  <ul>
-    <li>
-      <span>
-        <p class="inquiry_area">山田 太郎</p>
-      </span>
-    </li>
-    <li>
-      <span>
-        <p class="inquiry_area">aaaaaaa@gmail.com</p>
-      </span>
-    </li>
-    <li>
-      <span>
-        <p class="inquiry_area">012-3456-7890</p>
-      </span>
-    </li>
-    <li>
-      <span>
-        <p class="inquiry_area">お気軽にご相談ください。</p>
-      </span>
-    </li>
-  </ul>
-</div>
-</section>
-<div class="send_button">
-  <h2 class="send">
-    送信する
-  </h2>
-</div>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sbs5xto.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/sbs5xto.css" />
+    <title>AYA OOMINE</title>
 
-  <footer>
-    <ul>
-      <li>
-        <a href="#About">About</a>
-      </li>
-      <li>
-        <a href="#Works">Works</a>
-      </li>
-      <li>
-        <a href="#Contact">Contact</a>
-      </li>
-    </ul>
-    <p class="copy">
-      ©︎2024 AYA  OOMINE
-    </p>
-  </footer>
-</div>
-</body>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- slickのJavaScript -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <!-- AOS.jsのJavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body>
+    <header id="header" class="wrapper">
+      <nav class="header_nav">
+        <h1 class="logo">
+          <a href="./index.html"
+            ><img src="./img/first/logo@2x.png" alt="ヘッダーロゴ"
+          /></a>
+        </h1>
+        <ul class="header__nav-pc">
+          <li><a href="./profile.html">About</a></li>
+          <li><a href="./works/works1.html">Works</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <span></span>
+      </div>
+      <div class="header__nav-sp">
+        <ul>
+          <li><a href="./profile.html">About</a></li>
+          <li><a href="./works/works1.html">Works</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="contact_page">
+      <div class="contact_area">
+        <img src="./img/first/contact@2x.png" alt="contact" />
+        <div class="line"></div>
+      </div>
+      <h1>お問い合わせ</h1>
+      <p>
+        この度はお問い合わせフォームまでお越しいただき、ありがとうございます。<br />
+        サービスに関するご質問、ご希望などお気軽にご相談ください。<br />
+        内容確認後、営業日でご連絡いたします。<br />
+        横浜市を拠点としておりますが、お打ち合わせはオンラインでも承ります。
+      </p>
+    </section>
+
+    <section>
+      <form
+        class="c-form"
+        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScW2YJ2H09xFNTuGsY3WmDEAiE6TsPkJajXvQc0cK3ZJCt_Pg/formResponse"
+      >
+        <div class="c-form__item">
+          <label class="c-form__label" for="field-name"
+            >Name[氏名]</label
+          >
+          <input
+            class="c-form__input"
+            id="field-name"
+            placeholder=" 山田 太郎"
+            type="text"
+            required="required"
+          />
+        </div>
+        <div class="c-form__item">
+          <label class="c-form__label" for="field-mail"
+            >Email[メール]</label
+          >
+          <input
+            class="c-form__input"
+            id="field-mail"
+            placeholder="sample@gmail.com"
+            type="email"
+            required="required"
+          />
+        </div>
+        <div class="c-form__item">
+          <label class="c-form__label" for="field-tel"
+            >Tel[電話]</label
+          >
+          <input
+            class="c-form__input"
+            id="field-tel"
+            placeholder="012-345-6789"
+            type="text"
+            required="required"
+          />
+        </div>
+        <div class="c-form__item">
+          <label class="c-form__label" for="field-message"
+            >Message[メッセージ]</label
+          >
+          <textarea
+            class="c-form__input c-form__message"
+            id="field-message"
+            placeholder="お気軽にご相談ください"
+          ></textarea>
+        </div>
+        <div class="c-form__submit">
+          <button type="submit">送信する</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      <ul>
+        <li>
+          <a href="#About">About</a>
+        </li>
+        <li>
+          <a href="#Works">Works</a>
+        </li>
+        <li>
+          <a href="#Contact">Contact</a>
+        </li>
+      </ul>
+      <p class="copy">©︎2024 AYA OOMINE</p>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
 </html>
