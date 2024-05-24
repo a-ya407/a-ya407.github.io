@@ -85,6 +85,7 @@
             >Name[氏名]</label
           >
           <input
+            name="entry.9511544"
             class="c-form__input"
             id="field-name"
             placeholder=" 山田 太郎"
@@ -97,6 +98,7 @@
             >Email[メール]</label
           >
           <input
+            name="entry.890046719"
             class="c-form__input"
             id="field-mail"
             placeholder="sample@gmail.com"
@@ -109,6 +111,7 @@
             >Tel[電話]</label
           >
           <input
+            name="entry.579159484"
             class="c-form__input"
             id="field-tel"
             placeholder="012-345-6789"
@@ -121,6 +124,7 @@
             >Message[メッセージ]</label
           >
           <textarea
+            name="entry.1644920068"
             class="c-form__input c-form__message"
             id="field-message"
             placeholder="お気軽にご相談ください"
@@ -130,6 +134,16 @@
           <button type="submit">送信する</button>
         </div>
       </form>
+      <!-- サンクスページの実装 -->
+      <script type="text/javascript">
+        let submitted = false;
+    </script>
+    <iframe
+        name="hidden_iframe"
+        id="hidden_iframe"
+        style="display: none"
+        onload="if(submitted){window.location=thanks.html;}"
+    ></iframe>
     </section>
 
     <footer>

@@ -1041,16 +1041,16 @@ footer ul {
   text-align: center;
 }
 #thanks .thanks-message {
+  background:linear-gradient(transparent 80%, #ff801e 50%);
   display: inline-block;
   padding: 0 40px;
   font-size: 80px;
   font-weight: bold;
   color: #252625;
-  border-bottom: #ff801e solid 18px;
   text-align: center;
   font-family: circe, sans-serif;
 }
-
+    
 /* =============== レスポンシブ =============== */
 
 /* ▼ 1000px以下 */
