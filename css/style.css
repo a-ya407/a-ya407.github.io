@@ -72,6 +72,43 @@
   font-family: circe, sans-serif;
   font-weight: bold;
 }
+.writing-text {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+}
+.writing {
+  margin: 0 auto;
+}
+#text {
+  fill: #ff801e;
+}
+#text-path {
+  mask: url(#mask-stroke);
+}
+#mask {
+  fill: none;
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 900;
+  transform: translateX(-220px);
+  stroke-dasharray: 3500;
+  stroke-dashoffset: 3500;
+  animation: writeanime 8s ease-in-out forwards;
+}
+
+@keyframes writeanime {
+  from {
+      stroke-dashoffset: 3500;
+  }
+  to {
+      stroke-dashoffset: 0;
+  }
+}
+
+
 
 /* =============== 
 共通スタイル
@@ -99,10 +136,15 @@ a:hover {
   .sp-br 
     display: block;
   }
+
 @media screen and (max-width: 767px) {
   .sp-br {
     display: block;
   }
+}
+.header__nav-pc li a{
+  /*線の基点とするためrelativeを指定*/
+position: relative;
 }
 
 .scrolldown {
@@ -1082,6 +1124,13 @@ footer ul {
     top: -31px;
     margin-left: -195px;
   }
+  .title{
+    width: 395px;
+    font-size: 40px;
+  }
+  #thanks p{
+    font-size: 69%;
+  }
 }
 /* ▼ 800px以下 */
 @media screen and (max-width: 800px) {
@@ -1245,11 +1294,11 @@ footer ul {
     height: 30px; /* 矢印の高さ */
     width: 30px; /* 矢印の幅 */
     z-index: 25;
-    top: 40%;
+    top: 31%;
   }
   .slick-prev {
     left: -30px;
-    background-image: url("../img/first/arrow-prev@2x.png"); /* 左矢印の画像パス */
+    background-image: url("../img/first/aroow-prev@2x.png"); /* 左矢印の画像パス */
   }
   .slick-next {
     right: -30px;
@@ -1358,10 +1407,22 @@ footer ul {
     left: 63%;
     top: 12px;
   }
+  #thanks .thanks-message{
+    font-size: 65px;
+  }
+  .contact_text{
+    font-size: 12px;
+  }
 }
 @media screen and (max-width: 400px) {
   .circle {
     left: 69%;
     top: 15px;
+  }
+  .contact_text{
+    font-size: 67%;
+  }
+  .title{
+    font-size: 23px;
   }
 }

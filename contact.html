@@ -79,7 +79,8 @@
       <form
         class="c-form"
         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScW2YJ2H09xFNTuGsY3WmDEAiE6TsPkJajXvQc0cK3ZJCt_Pg/formResponse"
-      >
+      method="post" target="hidden_iframe" onsubmit="submitted=true;"> 
+      <!-- ▲送信ボタンとサンクスページを繋げる -->
         <div class="c-form__item">
           <label class="c-form__label" for="field-name"
             >Name[氏名]</label
@@ -142,7 +143,7 @@
         name="hidden_iframe"
         id="hidden_iframe"
         style="display: none"
-        onload="if(submitted){window.location=thanks.html;}"
+        onload="if(submitted){window.location='./thanks.html';}"
     ></iframe>
     </section>
 
