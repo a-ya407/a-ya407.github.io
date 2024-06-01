@@ -181,9 +181,9 @@ position: relative;
   height: 10px;
   border-radius: 50%;
   background: #252625;
-  /* 丸の動き1.6秒かけて透過し、永遠にループ
+  /* 丸の動き1.6秒かけて透過し、永遠にループ*/
   animation: circlemove 1.6s ease-in-out infinite,
-    cirlemovehide 1.6s ease-out infinite; */
+    cirlemovehide 1.6s ease-out infinite; 
 }
 
 /*下からの距離が変化して丸の全体が上から下に動く*/
@@ -1413,6 +1413,15 @@ footer ul {
   .contact_text{
     font-size: 12px;
   }
+  .name {
+    font-size: 38px;
+  }
+  .pc_img img{
+    width: 80%;
+  }
+  .banner img{
+    width: 70%;
+  }
 }
 @media screen and (max-width: 400px) {
   .circle {
@@ -1425,4 +1434,5 @@ footer ul {
   .title{
     font-size: 23px;
   }
+  
 }
