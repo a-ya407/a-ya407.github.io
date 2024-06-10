@@ -78,6 +78,13 @@
   margin: 0 auto;
   height: auto;
 }
+.writing-text-second{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: -13%;
+  height: auto;
+}
 .writing {
   margin: 0 auto;
 }
@@ -133,9 +140,10 @@ a:hover {
   display: none;
 }
 @media screen and (max-width: 1080px) {
-  .sp-br 
+  .sp-br {
     display: block;
   }
+}
 
 @media screen and (max-width: 767px) {
   .sp-br {
@@ -153,12 +161,13 @@ position: relative;
   right: 30px;
 }
 
+
 /*Scrollテキストの描写*/
 .scrolldown span {
   /*描画位置*/
   position: absolute;
   left: -11px;
-  bottom: -75px;
+  bottom: -225px;
   /*テキストの形状*/
   color: #252625;
   font-size: 18px;
@@ -189,10 +198,10 @@ position: relative;
 /*下からの距離が変化して丸の全体が上から下に動く*/
 @keyframes circlemove {
   0% {
-    bottom: 50px;
+    bottom: -155px;
   }
   100% {
-    bottom: -5px;
+    bottom: -95px;
   }
 }
 
@@ -217,7 +226,7 @@ position: relative;
   content: "";
   /*描画位置*/
   position: absolute;
-  bottom: 0;
+  bottom: -153px;
   left: 0;
   /*線の形状*/
   width: 1.5px;
@@ -368,7 +377,7 @@ main-visual
   max-width: 430px;
   position: absolute;
   content: "";
-  top: -100px;
+  top: -110px;
   left: 60px;
 }
 .AYAOOMINE__img {
@@ -379,7 +388,7 @@ main-visual
   width: 56.8%;
   max-width: 780px;
   position: absolute;
-  top: 110px;
+  top: 90px;
   left: 200px;
 }
 
@@ -1124,9 +1133,12 @@ footer ul {
     top: -31px;
     margin-left: -195px;
   }
+  .name{
+    font-size: 40px;
+  }
   .title{
     width: 395px;
-    font-size: 40px;
+    font-size: 35px;
   }
   #thanks p{
     font-size: 69%;
@@ -1163,6 +1175,7 @@ footer ul {
     padding: 105px 20px 0;
     margin: 0 auto;
   }
+
 }
 
 /* ▼ 767px以下 */
