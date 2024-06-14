@@ -28,6 +28,43 @@
   s.parentNode.insertBefore(tk, s);
 })(document);
 
+// ローディング完了後にアニメーションを開始する関数
+function startSvgAnimation() {
+  const mask = document.getElementById('mask');
+  mask.classList.add('animate');
+  // 強制的に再描画を行うことでCSSの変更を検知させる
+  void mask.offsetWidth;
+  mask.style.strokeDashoffset = '0';
+}
+// 初回訪問かどうかを判定する関数
+function isFirstVisit() {
+  return !sessionStorage.getItem("visit");
+}
+// 初回訪問時の処理
+function handleFirstVisit() {
+  sessionStorage.setItem("visit", "true");
+  $(".loading")
+    .delay(5500)
+    .fadeOut(function () {
+      $("body").addClass("appear");
+      startSvgAnimation(); // 初回訪問時にSVGアニメーションを開始
+    });
+}
+// 再訪問時の処理
+function handleRepeatVisit() {
+  $(".loading").css("display", "none");
+  $(".container").css("opacity", "1");
+  startSvgAnimation(); // 再訪問時にSVGアニメーションを開始
+}
+// ロードイベント
+window.addEventListener("load", function () {
+  if (isFirstVisit()) {
+    handleFirstVisit();
+  } else {
+    handleRepeatVisit();
+  }
+});
+
 // ===== loading =====
 function slideAnime() {
   $(".leftAnime").each(function () {
