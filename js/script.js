@@ -86,23 +86,6 @@ $(window).scroll(function () {
 $(window).on("load", function () {
   slideAnime();
 });
-window.addEventListener("load", function () {
-  document.getElementById("page-loader").style.display = "none";
-});
-const webStorage = function () {
-  if (sessionStorage.getItem("visit")) {
-    $(".loading").css("display", "none");
-    $(".container").css("opacity", "1");
-  } else {
-    sessionStorage.setItem("visit", "true");
-    $(".loading")
-      .delay(5500)
-      .fadeOut(function () {
-        $("body").addClass("appear");
-      });
-  }
-};
-webStorage();
 
 // jQeryで制作したアニメーション
 $(function () {
